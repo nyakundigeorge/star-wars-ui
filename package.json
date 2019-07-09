@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "fish-ui": "^1.1.73",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {

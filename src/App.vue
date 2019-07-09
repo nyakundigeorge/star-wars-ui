@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <fish-date-picker v-model="datePickerValue"></fish-date-picker>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FishDatePicker from "fish-ui/src/components/DatePicker";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    FishDatePicker
+  },
+  data(){
+    return {
+      datePickerValue: ''
+    }
   }
 }
 </script>
