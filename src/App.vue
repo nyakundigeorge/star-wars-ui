@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <fish-date-picker v-model="datePickerValue"></fish-date-picker>
+    <TopNavigation/>
+    <transition name="moveInUp">
+      <router-view />
+    </transition>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import FishDatePicker from "fish-ui/src/components/DatePicker";
+import TopNavigation from "./components/Navigation/TopNavigation";
+import Footer from "./components/Footer/Footer"
 
 export default {
   name: 'app',
   components: {
-    FishDatePicker
+    Footer,
+    TopNavigation
   },
   data(){
     return {
@@ -21,12 +27,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "./themes/scss/default.scss";
 </style>
