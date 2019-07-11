@@ -2,11 +2,10 @@
     <div class="card">
         <div class="card-content">
             <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
+                {{title}}
                 <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <time datetime="2016-1-1">{{publishedDate}}</time>
+                <p>{{url}}</p>
             </div>
         </div>
     </div>
@@ -14,7 +13,24 @@
 
 <script>
     export default {
-        name: "MainMemeCard"
+        name: "MainMemeCard",
+        props :{
+            title : {
+                type: String,
+                default:"",
+                required: true
+            },
+            url: {
+                type: String,
+                default: "",
+                required: true
+            },
+            publishedDate: {
+                type: String,
+                default:"",
+                required: true
+            }
+        }
     }
 </script>
 
