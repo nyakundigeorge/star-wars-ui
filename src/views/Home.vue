@@ -3,8 +3,9 @@
         <div class="topMargin"></div>
         <div class="columns is-multiline">
             <div class="column is-half " v-for="newsItem in news" v-bind:key="newsItem.slug_name">
-                <MainMemeCard :published-date="newsItem.published_date" :title="newsItem.title" :url="newsItem.url"/>
+                <MainMemeCard :abstract="newsItem.abstract" :published-date="newsItem.published_date" :title="newsItem.title" :url="newsItem.url" :img-url="newsItem.thumbnail_standard"/>
             </div>
+
         </div>
         <div class="bottomMargin"></div>
     </section>
@@ -14,12 +15,14 @@
 <script>
     import MainMemeCard from "../components/Cards/MainMemeCard";
     import {FETCH_NEWS} from "../store/actionTypes";
+    // import Modal from "fish-ui";
 
     export default {
         name: "Home",
-        components: {MainMemeCard},
+        components: { MainMemeCard},
         async created() {
             await this.$store.dispatch(FETCH_NEWS);
+            // this.$modal.show('hello-world');
         },
         computed :{
             news() {
@@ -30,7 +33,8 @@
                         url,
                         title,
                         slug_name,
-                        source
+                        source,
+                        thumbnail_standard
                     } = newsItem;
 
                     return {
@@ -39,8 +43,10 @@
                         url,
                         title,
                         slug_name,
-                        source
+                        source,
+                        thumbnail_standard
                     }
+
                 })
             }
         }
